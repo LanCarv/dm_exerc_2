@@ -1,0 +1,11 @@
+# Ignorar ambiente virtual e arquivos grandes
+__pycache__/
+*.pyc
+.env
+desafio_exerc_2/
+mlruns/
+previsao/
+*.zip
+*.pkl
+*.dll
+*.whl
