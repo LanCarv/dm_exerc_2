@@ -108,7 +108,7 @@ pip install -r requirements.txt
 
 ### 3. Configure o `.env`
 ```env
-ZIP_PATH_1=C:\caminho\para\career-con-2019.zip
+ZIP_PATH_1=C:\caminho\para\competitive-data-science-predict-future-sales.zip
 EXTRACT_PATH_1=C:\caminho\para\extração\dos\csvs
 ```
 
