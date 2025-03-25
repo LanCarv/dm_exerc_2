@@ -117,6 +117,14 @@ Após isso vá no seu navegador e digite uvicorn api_pipeline:app --reload http:
 
 ---
 
+## 📊 MLflow
+Os experimentos são monitorados e logados automaticamente.
+Para visualizar:
+```bash
+mlflow ui
+```
+Acesse: [http://localhost:5000](http://localhost:5000)
+
 ## 📆 Futuros Melhoramentos
 
 - Integração total com `MLflow UI`
