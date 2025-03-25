@@ -91,13 +91,38 @@ O melhor modelo final foi o **XGBoost**, com os seguintes resultados:
 
 ---
 
+## 🚀 Como rodar o projeto (FastAPI)
+
+### 1. Clone o repositório e crie o ambiente:
+```bash
+git clone https://github.com/seu-usuario/seu-repo.git
+cd seu-repo/source
+python -m venv desafio_exerc_2
+source desafio_exerc_2/Scripts/activate  # ou .\desafio_exerc_2\Scripts\activate no Windows
+```
+
+### 2. Instale os pacotes:
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure o `.env`
+```env
+ZIP_PATH_1=C:\caminho\para\career-con-2019.zip
+EXTRACT_PATH_1=C:\caminho\para\extração\dos\csvs
+```
+
+### 4. 📈 Suba a API
+```bash
+uvicorn api_pipeline:app --reload
+```
+
+### 5. 🖥️ Acesse no navegador:
+- Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+---
+
 ## 🖥️ Endpoints via FastAPI
-
-O projeto expõe os seguintes endpoints para execução modular do pipeline:
-
-Coloque o comando - uvicorn api_pipeline:app --reload para ativar o servidor!
-
-Após isso vá no seu navegador e digite uvicorn api_pipeline:app --reload http://localhost:8000/docs e utilize os endpoints a seguir:
 
 | Rota         | Ação | Resultado |
 |--------------|--------|-----------|
