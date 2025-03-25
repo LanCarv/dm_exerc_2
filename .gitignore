@@ -9,3 +9,4 @@ previsao/
 *.pkl
 *.dll
 *.whl
+*.csv
