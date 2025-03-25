@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.model_selection import TimeSeriesSplit, GridSearchCV
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from xgboost import XGBRegressor
-from evaluation.metrics import concordance_correlation_coefficient
+from source.ml_pipeline.evaluation.metrics import concordance_correlation_coefficient
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -89,9 +89,9 @@ def avaliar_modelos(X, y, modelos, n_splits=5, verbose=True):
 
     if verbose:
         print("\nResumo de Desempenho dos Modelos:")
-        display(df_resultados)
+        print(df_resultados)
 
     nome_melhor = df_resultados.iloc[0]['Modelo']
     melhor_modelo = modelos[nome_melhor]
-    print(f"\n🏆 Melhor modelo: {nome_melhor}")
+    print(f"\n Melhor modelo: {nome_melhor}")
     return df_resultados, nome_melhor, melhor_modelo

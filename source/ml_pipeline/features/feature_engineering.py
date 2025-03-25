@@ -30,10 +30,19 @@ def create_lag_features(df, lags=[1, 2, 3], col_target='item_cnt_month'):
     return df_lag
 
 def criar_variaveis_temporais(df):
-    df['ano_mes'] = pd.to_datetime(df['date_block_num'], format='%m') + pd.DateOffset(months=0)
-    df['month'] = df['ano_mes'].dt.month
-    df['year'] = df['ano_mes'].dt.year
-    df['is_december'] = (df['month'] == 12).astype(int)
+    import pandas as pd
+
+    calendar_map = pd.DataFrame({
+        'date_block_num': list(range(0, 34)),
+    })
+
+    calendar_map['ano_mes'] = pd.date_range(start='2013-01-01', periods=34, freq='MS').strftime('%Y-%m')
+    calendar_map['month'] = pd.date_range(start='2013-01-01', periods=34, freq='MS').month
+    calendar_map['year'] = pd.date_range(start='2013-01-01', periods=34, freq='MS').year
+    calendar_map['is_december'] = (calendar_map['month'] == 12).astype(int)
+
+    df = df.merge(calendar_map, on='date_block_num', how='left')
+
     return df
 
 def criar_variaveis_top_vendas(df):

@@ -17,7 +17,7 @@ def extrair_zip_automaticamente():
 
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(extract_path)
-        print(f"📦 Arquivos extraídos com sucesso em: {extract_path}")
+        print(f"Arquivos extraídos com sucesso em: {extract_path}")
 
 def importar_dados(caminho_base):
     X_train = pd.read_csv(f"{caminho_base}/sales_train.csv")

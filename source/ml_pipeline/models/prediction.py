@@ -1,6 +1,7 @@
 # ml_pipeline/models/prediction.py
 import pandas as pd
 import numpy as np
+import os
 
 def gerar_previsoes_com_melhor_modelo(df_test, df_features, modelo_avaliado, features_usadas, nome_arquivo='previsoes.csv'):
     df_test = df_test.copy()
@@ -21,7 +22,16 @@ def gerar_previsoes_com_melhor_modelo(df_test, df_features, modelo_avaliado, fea
         'item_cnt_month': y_pred
     })
 
-    df_submissao.to_csv(nome_arquivo, index=False)
-    print(f"Arquivo '{nome_arquivo}' gerado com sucesso com o melhor modelo!")
+    pasta = os.path.dirname(nome_arquivo)
+    if not os.path.exists(pasta):
+        os.makedirs(pasta)
 
+    os.makedirs(os.path.dirname(nome_arquivo), exist_ok=True)
+
+    nome_arquivo_absoluto = os.path.abspath(nome_arquivo)
+
+    print(f"Salvando CSV em: {os.path.abspath(nome_arquivo)}")
+    df_submissao.to_csv(nome_arquivo_absoluto, index=False)
+
+    print(f"Arquivo salvo em: {nome_arquivo_absoluto}")
     return df_submissao

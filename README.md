@@ -95,6 +95,10 @@ O melhor modelo final foi o **XGBoost**, com os seguintes resultados:
 
 O projeto expõe os seguintes endpoints para execução modular do pipeline:
 
+Coloque o comando - uvicorn api_pipeline:app --reload para ativar o servidor!
+
+Após isso vá no seu navegador e digite uvicorn api_pipeline:app --reload http://localhost:8000/docs e utilize os endpoints a seguir:
+
 | Rota         | Ação | Resultado |
 |--------------|--------|-----------|
 | `/`                  | Teste de saúde | JSON |
@@ -104,6 +108,7 @@ O projeto expõe os seguintes endpoints para execução modular do pipeline:
 | `/prever`           | Gera previsão final e baixa CSV | download |
 | `/pipeline_completo`       | Executa todo o pipeline completo | download CSV |
 
+![alt text](image.png)
 ---
 
 ## 🔄 Versão do Python
