@@ -10,6 +10,32 @@ Este projeto resolve o problema do **desafio "Predict Future Sales"** do Kaggle,
 
 ---
 
+### ⚙️ Pipeline do Projeto
+
+- 📦 **ETL** automático extraindo dados a partir de um `.zip` local com múltiplos arquivos (`sales_train.csv`, `test.csv`, etc)
+- 🛠️ **Engenharia de Features** com criação de *lags temporais*, variáveis sazonais e agregações por item, loja e categoria
+- 🤖 **Treinamento supervisionado** com múltiplos modelos: `LinearRegression`, `RandomForest` e `XGBoost`
+- 📊 **Validação cruzada** e logging automático com **MLflow** para rastreabilidade dos experimentos
+- 🔮 **Geração de previsões** no formato de submissão (`previsoes.csv`) para avaliação no Kaggle
+- 🌐 **API com FastAPI** com endpoints modulares:
+  - `/etl` → importa dados
+  - `/features` → gera features
+  - `/treinar` → treina modelos
+  - `/prever` → gera CSV com previsões
+  - `/pipeline_completo` → executa tudo e permite download direto via navegador
+
+---
+## ⚙️ Requisitos
+
+- **Python 3.10**
+- Ambiente virtual
+
+Instale os requisitos:
+```bash
+pip install -r requirements.txt
+```
+
+---
 ## 📁 Estrutura do Projeto
 
 ```
@@ -134,12 +160,6 @@ uvicorn api_pipeline:app --reload
 | `/pipeline_completo`       | Executa todo o pipeline completo | download CSV |
 
 ![alt text](image.png)
----
-
-## 🔄 Versão do Python
-
-- **Python 3.10**
-
 ---
 
 ## 📊 MLflow
